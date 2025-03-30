@@ -25,7 +25,9 @@ interface CartContextType {
   cartTotal: number;
 }
 
-const CartContext = React.createContext<CartContextType | undefined>(undefined);
+export const CartContext = React.createContext<CartContextType | undefined>(
+  undefined
+);
 
 const CartProvider = ({ children }: Props) => {
   const [items, setItems] = useState<CartItem[]>([]);
