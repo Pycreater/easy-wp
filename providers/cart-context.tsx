@@ -19,6 +19,7 @@ interface CartContextType {
   addItem: (product: any) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   cartTotal: number;
@@ -66,10 +67,30 @@ const CartProvider = ({ children }: Props) => {
     );
   }, []);
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+  }, []);
+
+  const cartTotal = items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem }}
-    ></CartContext.Provider>
+      value={{
+        items,
+        addItem,
+        removeItem,
+        updateQuantity,
+        clearCart,
+        isOpen,
+        setIsOpen,
+        cartTotal,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };
 
