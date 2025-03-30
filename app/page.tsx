@@ -1,4 +1,4 @@
 export default function Home() {
-  return <div>Hello fkjndgjrdk</div>;
+  return <div></div>;
 }
-jfkfd;
+
