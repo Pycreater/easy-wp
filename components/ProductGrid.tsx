@@ -26,6 +26,7 @@ const ProductGrid = ({ products }: Props) => {
   const isOpen = cart?.isOpen;
   const setIsOpen = cart?.setIsOpen;
   const cartItems = cart?.items || [];
+  const updateQuantity = cart?.updateQuantity;
 
   return (
     <div className="min-h-screen bg-white">
@@ -80,7 +81,27 @@ const ProductGrid = ({ products }: Props) => {
                         <li key={item.id} className="flex gap-4">
                           ``
                           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
-                            <Image src={item.images[0].src} />
+                            <Image
+                              src={item.images[0].src || "/placeholder.svg"}
+                              alt={item.name}
+                              width={96}
+                              height={96}
+                              className="h-full w-full object-contain p-2"
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col">
+                            <div className="flex justify-between text-base font-medium text-gray-900">
+                              <h3>{item.name}</h3>
+                              <p className="ml-4">${item.price}</p>
+                            </div>
+                            <div className="flex items-center mt-2">
+                              <button
+                                className="rounded-md border p-1"
+                                onClick={() =>
+                                  updateQuantity(item.id, item.quantity - 1)
+                                }
+                              ></button>
+                            </div>
                           </div>
                         </li>
                       ))}
