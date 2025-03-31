@@ -1,7 +1,7 @@
 "use client";
 
 import { navbarData } from "@/lib/data";
-import { MoreVertical, ShoppingCart, X } from "lucide-react";
+import { Minus, MoreVertical, Plus, ShoppingCart, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
@@ -27,6 +27,7 @@ const ProductGrid = ({ products }: Props) => {
   const setIsOpen = cart?.setIsOpen;
   const cartItems = cart?.items || [];
   const updateQuantity = cart?.updateQuantity;
+  const removeFromCart = cart?.removeItem;
 
   return (
     <div className="min-h-screen bg-white">
@@ -98,9 +99,30 @@ const ProductGrid = ({ products }: Props) => {
                               <button
                                 className="rounded-md border p-1"
                                 onClick={() =>
-                                  updateQuantity(item.id, item.quantity - 1)
+                                  updateQuantity?.(item.id, item.quantity - 1)
                                 }
-                              ></button>
+                              >
+                                <Minus className="h-4 w-4" />
+                              </button>
+                              <span className="mx-2 w-8 text-center">
+                                {item.quantity}
+                              </span>
+                              <button
+                                className="rounded-md border p-1"
+                                onClick={() =>
+                                  updateQuantity?.(item.id, item.quantity + 1)
+                                }
+                              >
+                                <Plus className="h-4 w-4" />
+                              </button>
+
+                              <button
+                                onClick={() => removeFromCart?.(item.id)}
+                                className="ml-auto text-gray-400 hover:text-gray-500"
+                              >
+                                <X className="h-5 w-5" />
+                                <span className="sr-only">Remove</span>
+                              </button>
                             </div>
                           </div>
                         </li>
