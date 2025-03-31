@@ -16,6 +16,7 @@ interface CartItem {
 
 interface CartContextType {
   items: CartItem[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   addItem: (product: any) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
@@ -33,6 +34,7 @@ const CartProvider = ({ children }: Props) => {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const addItem = useCallback((product: any) => {
     setItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
@@ -67,6 +69,7 @@ const CartProvider = ({ children }: Props) => {
         item.id === productId ? { ...item, quantity } : item
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const clearCart = useCallback(() => {
