@@ -19,8 +19,7 @@ type Props = {
   products: any[];
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ProductGrid = ({ products }: Props) => {
+const ProductGrid = ({ products = [] }: Props) => {
   const [toggle, setToggle] = useState(false);
   const cart = useCart();
   const isOpen = cart?.isOpen;
@@ -28,6 +27,7 @@ const ProductGrid = ({ products }: Props) => {
   const cartItems = cart?.items || [];
   const updateQuantity = cart?.updateQuantity;
   const removeFromCart = cart?.removeItem;
+  const cartTotal = cart?.cartTotal || 0;
 
   return (
     <div className="min-h-screen bg-white">
@@ -129,12 +129,40 @@ const ProductGrid = ({ products }: Props) => {
                       ))}
                     </ul>
                   </div>
+                  <div className="border-t border-gray-200 py-6">
+                    <div className="flex justify-between text-base font-medium text-gray-900 mb-4">
+                      <p>Subtotal</p>
+                      <p>${cartTotal}</p>
+                    </div>
+                    {/* wip: <Checkout /> */}
+                  </div>
                 </div>
               )}
             </SheetContent>
           </Sheet>
         </div>
       </header>
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-40">
+          {products.map((product, index) => (
+            <Link
+              href={`/product/${product.id}`}
+              key={index}
+              className="flex flex-col group relative"
+            >
+              <div className="aspect-square rounded-md overflow-hidden">
+                <Image
+                  src={product.images[0].src || "/placeholder.svg"}
+                  alt={product.name}
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
