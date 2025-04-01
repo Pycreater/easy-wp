@@ -29,6 +29,8 @@ const ProductGrid = ({ products = [] }: Props) => {
   const removeFromCart = cart?.removeItem;
   const cartTotal = cart?.cartTotal || 0;
 
+  console.log(products, "products");
+
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-10 bg-white">
