@@ -5,7 +5,7 @@ type Props = {
 };
 
 const ProductPage = ({ params: { id } }: Props) => {
-  return <div>product id - {id}</div>;
+  return <div>product id number - {id}</div>;
 };
 
 export default ProductPage;
