@@ -136,7 +136,7 @@ const ProductGrid = ({ products = [] }: Props) => {
                       <p>Subtotal</p>
                       <p>${cartTotal}</p>
                     </div>
-                    {/* wip: <Checkout /> */}
+                    {/* wip: <Checkout /> */} hfd
                   </div>
                 </div>
               )}
