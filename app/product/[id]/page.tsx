@@ -1,4 +1,5 @@
 import { getProduct } from "@/actions/products";
+import ProductQuantity from "@/components/product/ProductQuantity";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -32,6 +33,18 @@ const ProductPage = async ({ params: { id } }: Props) => {
               />
             </div>
           )}
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <h1 className="text-xl font-bold">{product.name}</h1>
+
+              <ProductQuantity product={product} />
+              <div className="text-2xl font-bold">${product.price}</div>
+            </div>
+            <div
+              className="text-gray-700"
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
+          </div>
         </div>
       </div>
     </div>
