@@ -78,11 +78,10 @@ const ProductGrid = ({ products = [] }: Props) => {
                 </div>
               ) : (
                 <div className="flex flex-col h-full">
-                  <div className="flex-1 overflow-auto py-6">
+                  <div className="flex-1 overflow-auto p-6">
                     <ul className="space-y-6">
                       {cartItems.map((item) => (
                         <li key={item.id} className="flex gap-4">
-                          ``
                           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
                             <Image
                               src={item.images[0].src || "/placeholder.svg"}
