@@ -130,7 +130,7 @@ const ProductGrid = ({ products = [] }: Props) => {
                       ))}
                     </ul>
                   </div>
-                  <div className="border-t border-gray-200 py-6">
+                  <div className="border-t border-gray-200 p-6">
                     <div className="flex justify-between text-base font-medium text-gray-900 mb-4">
                       <p>Subtotal</p>
                       <p>${cartTotal}</p>

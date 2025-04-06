@@ -1,4 +1,5 @@
 import { getProduct } from "@/actions/products";
+import ProductAction from "@/components/product/ProductAction";
 import ProductQuantity from "@/components/product/ProductQuantity";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,6 +46,9 @@ const ProductPage = async ({ params: { id } }: Props) => {
               dangerouslySetInnerHTML={{ __html: product.description }}
             />
           </div>
+        </div>
+        <div className="lg:col-span-1">
+          <ProductAction />
         </div>
       </div>
     </div>
