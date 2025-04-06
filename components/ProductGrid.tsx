@@ -13,6 +13,7 @@ import {
 } from "./ui/sheet";
 import { useCart } from "@/hooks/use-cart";
 import Image from "next/image";
+import Checkout from "./Checkout";
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -135,7 +136,7 @@ const ProductGrid = ({ products = [] }: Props) => {
                       <p>Subtotal</p>
                       <p>${cartTotal}</p>
                     </div>
-                    {/* wip: <Checkout /> */}
+                    <Checkout />
                   </div>
                 </div>
               )}
