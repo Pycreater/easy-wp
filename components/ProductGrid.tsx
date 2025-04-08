@@ -1,6 +1,5 @@
 "use client";
 
-// nothing today
 // as of now we are not
 
 import { navbarData } from "@/lib/data";
