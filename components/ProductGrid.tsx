@@ -1,7 +1,7 @@
 "use client";
 
 // nothing today
-// as of now we are not using this component 
+// as of now we are not using this
 
 import { navbarData } from "@/lib/data";
 import { Minus, MoreVertical, Plus, ShoppingCart, X } from "lucide-react";
