@@ -1,6 +1,6 @@
 "use client";
 
-// as of now we are 
+// as of now we
 
 import { navbarData } from "@/lib/data";
 import { Minus, MoreVertical, Plus, ShoppingCart, X } from "lucide-react";
