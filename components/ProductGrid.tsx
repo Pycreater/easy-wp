@@ -1,5 +1,4 @@
 "use client";
-hxsaj
 
 import { navbarData } from "@/lib/data";
 import { Minus, MoreVertical, Plus, ShoppingCart, X } from "lucide-react";
